@@ -1,0 +1,7 @@
+/composer.lock
+/phpunit.xml
+/tests/data/*
+!/tests/data/.gitkeep
+/tests/proxies/*
+!/tests/proxies/.gitkeep
+/vendor
