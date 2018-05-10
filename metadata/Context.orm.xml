@@ -15,13 +15,13 @@
         <field name="language" type="string" nullable="true" />
         <field name="statement" type="string" nullable="true" />
 
-        <one-to-one field="instructor" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="instructor" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
             <join-column referenced-column-name="identifier" />
         </one-to-one>
-        <one-to-one field="team" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="team" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
@@ -35,22 +35,22 @@
         </one-to-one>
 
         <!-- context activities -->
-        <one-to-many field="parentActivities" target-entity="XApi\Repository\Doctrine\Mapping\Object" mapped-by="parentContext">
+        <one-to-many field="parentActivities" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" mapped-by="parentContext">
             <cascade>
                 <cascade-all />
             </cascade>
         </one-to-many>
-        <one-to-many field="groupingActivities" target-entity="XApi\Repository\Doctrine\Mapping\Object" mapped-by="groupingContext">
+        <one-to-many field="groupingActivities" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" mapped-by="groupingContext">
             <cascade>
                 <cascade-all />
             </cascade>
         </one-to-many>
-        <one-to-many field="categoryActivities" target-entity="XApi\Repository\Doctrine\Mapping\Object" mapped-by="categoryContext">
+        <one-to-many field="categoryActivities" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" mapped-by="categoryContext">
             <cascade>
                 <cascade-all />
             </cascade>
         </one-to-many>
-        <one-to-many field="otherActivities" target-entity="XApi\Repository\Doctrine\Mapping\Object" mapped-by="otherContext">
+        <one-to-many field="otherActivities" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" mapped-by="otherContext">
             <cascade>
                 <cascade-all />
             </cascade>

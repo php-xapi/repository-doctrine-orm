@@ -18,6 +18,8 @@ matrix:
       env: COMPOSER_OPTIONS="--prefer-lowest --prefer-stable"
     - php: 7.0
       env: xdebug="yes" PHPUNIT_OPTIONS="--coverage-clover=coverage.clover"
+    - php: 7.1
+    - php: 7.2
 
 before_install:
   - if [[ "$xdebug" != "yes" ]]; then phpenv config-rm xdebug.ini; fi

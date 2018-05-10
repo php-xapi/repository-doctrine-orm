@@ -13,11 +13,10 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "doctrine/orm": "^2.3",
-        "php-xapi/repository-api": "^0.3",
-        "php-xapi/repository-doctrine": "^0.3"
+        "php-xapi/repository-api": "^0.4",
+        "php-xapi/repository-doctrine": "^0.4"
     },
     "require-dev": {
-        "php-xapi/model": "^1.0.1",
         "symfony/phpunit-bridge": "^3.4 || ^4.0"
     },
     "provide": {
