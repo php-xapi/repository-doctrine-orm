@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^5.3 || ^7.0",
+        "php": "^5.6 || ^7.0",
         "doctrine/orm": "^2.3",
         "php-xapi/repository-api": "^0.3",
         "php-xapi/repository-doctrine": "^0.3"
