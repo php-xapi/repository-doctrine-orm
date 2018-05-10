@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
         http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="XApi\Repository\Doctrine\Mapping\Object" table="xapi_object">
+    <entity name="XApi\Repository\Doctrine\Mapping\StatementObject" table="xapi_object">
         <id name="identifier" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -33,7 +33,7 @@
         <field name="referencedStatementId" type="string" nullable="true" />
 
         <!-- sub statement -->
-        <one-to-one field="actor" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="actor" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
@@ -45,7 +45,7 @@
             </cascade>
             <join-column referenced-column-name="identifier" />
         </one-to-one>
-        <one-to-one field="object" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="object" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
@@ -61,8 +61,8 @@
         </one-to-one>
 
         <!-- group members -->
-        <one-to-many target-entity="XApi\Repository\Doctrine\Mapping\Object" mapped-by="group" field="members" />
-        <many-to-one target-entity="XApi\Repository\Doctrine\Mapping\Object" field="group" inversed-by="members">
+        <one-to-many target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" mapped-by="group" field="members" />
+        <many-to-one target-entity="XApi\Repository\Doctrine\Mapping\StatementObject" field="group" inversed-by="members">
             <join-column referenced-column-name="identifier" />
         </many-to-one>
 

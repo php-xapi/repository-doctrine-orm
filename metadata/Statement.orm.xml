@@ -15,7 +15,7 @@
         <field name="stored" type="bigint" nullable="true" />
         <field name="hasAttachments" type="boolean" />
 
-        <one-to-one field="actor" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="actor" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
@@ -27,7 +27,7 @@
             </cascade>
             <join-column referenced-column-name="identifier" />
         </one-to-one>
-        <one-to-one field="object" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="object" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
@@ -39,7 +39,7 @@
             </cascade>
             <join-column referenced-column-name="identifier" />
         </one-to-one>
-        <one-to-one field="authority" target-entity="XApi\Repository\Doctrine\Mapping\Object">
+        <one-to-one field="authority" target-entity="XApi\Repository\Doctrine\Mapping\StatementObject">
             <cascade>
                 <cascade-all />
             </cascade>
