@@ -5,24 +5,29 @@ language: php
 cache:
   directories:
     - $HOME/.composer/cache/files
+    - $HOME/.phpunit
 
+env:
+  global:
+    - SYMFONY_PHPUNIT_DIR=$HOME/.phpunit
 
 matrix:
   fast_finish: true
   include:
     - php: 5.6
-      env: deps="low"
+      env: COMPOSER_OPTIONS="--prefer-lowest --prefer-stable"
     - php: 7.0
-      env: xdebug="yes"
+      env: xdebug="yes" PHPUNIT_OPTIONS="--coverage-clover=coverage.clover"
 
 before_install:
   - if [[ "$xdebug" != "yes" ]]; then phpenv config-rm xdebug.ini; fi
   - composer self-update
 
 install:
-  - if [ "$deps" = "low" ]; then composer update --prefer-lowest --prefer-stable; else composer install; fi
+  - composer update $COMPOSER_OPTIONS
+  - vendor/bin/simple-phpunit install
 
 script:
-  - if [[ "$xdebug" = "yes" ]]; then phpunit --coverage-clover=coverage.clover; else phpunit; fi
+  - vendor/bin/simple-phpunit $PHPUNIT_OPTIONS
   - if [[ "$xdebug" = "yes" ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
   - if [[ "$xdebug" = "yes" ]]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
